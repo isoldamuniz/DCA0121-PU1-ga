@@ -15,7 +15,7 @@ require_once('fitnesscalc.php');  //supporting class file
 
     // Create a random individual
     public function generateIndividual() {
-        $this->genes[0] = rand(1, 1000); //Price
+        $this->genes[0] = rand(200, 1000); //Price
         $this->genes[1] = rand(1, 100);  //Costvalue
         $this->genes[2] = rand(1, 100);  //beachCloseness
         $this->genes[3] = rand(1, 100);  //breakfast
@@ -40,7 +40,7 @@ require_once('fitnesscalc.php');  //supporting class file
 
     /* Public methods */
     public function getFitness() {
-        $weights = [(5/5), (1/5), (2/5), (3/5), (4/5)];
+        $weights = [(1/5), (2/5), (3/5), (4/5), (5/5)];
 
         if ($this->fitness == 0) {
             $this->fitness = FitnessCalc::getFitness($this, $weights);  //call static method to calculate fitness

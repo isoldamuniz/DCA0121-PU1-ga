@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Melhor hotel de Natal</title>
+
+	<link href="bootstrap-4.0.0-dist/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div align="center" class="form-control">
+			<h1>Melhor hotel</h1>
+			<h4>Localização: Natal, Rio Grande do Norte</h4>
+		</div>
+		<form>
+			<div align="center" class="form-control">
+			<h6 class="col-md-4">Informe até quanto você deseja pagar por uma diária no hotel</h6>
+			<input type="text" name="preco" onkeypress='return SomenteNumero(event)'>
+			<h6 class="col-md-4">Agora, coloque os itens abaixo em ordem de importância para você <br></h6>
+			<ol class="example col-md-2 col-sm-4">
+				<li class="li">
+					Café da manhã
+					<input type="hidden" id="cafe" name="breakfast" value="1">
+				</li>
+				<li class="li">
+					Preço
+					<input type="hidden" id="price" name="price" value="2">
+				</li>
+				<li class="li">
+					Proximidade da praia
+					<input type="hidden" id="praia" name="beach" value="3">
+				</li>
+				<li class="li">
+					Wi-Fi
+					<input type="hidden" id="wifi" name="wifi" value="4">
+				</li>
+				<li class="li">
+					Acomodação
+					<input type="hidden" id="acomo" name="acomodation" value="5">
+				</li>
+			</ol>
+			<button type="submit" id="botao" class="btn btn-light">Enviar</button>
+		</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="jquery-sortable.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+ 
+$(document).ready(function(){
+	$("#botao").click(function() {
+		/*digitar aqui*/
+	});
+});
+
+$(function  () {
+  $("ol.example").sortable();
+});
+
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+ 
+</script>
+
+<style type="text/css">
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+ol.example {
+	margin: 0 0 9px 0;
+  	min-height: 10px;
+}
+
+ol.example li{
+	display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #CCC;
+    color: $linkColor;
+    background: $grayLighter;
+}
+
+ol.example li.placeholder {
+  	position: relative;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+ol.example li.placeholder:before {
+	position: relative;
+	content: "";
+	width: 0;
+	height: 0;
+	margin-top: 5px;
+	left: 5px;
+	top: 4px;
+	background-color: #CCC;
+	border: 5px solid transparent;
+}
+    
+</style>
